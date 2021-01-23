@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/albusterEmployeeDirectory/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/albusterEmployeeDirectory/static/js/main.9f3e4770.chunk.js",
+    "main.js.map": "/albusterEmployeeDirectory/static/js/main.9f3e4770.chunk.js.map",
+    "runtime-main.js": "/albusterEmployeeDirectory/static/js/runtime-main.07a34fbe.js",
+    "runtime-main.js.map": "/albusterEmployeeDirectory/static/js/runtime-main.07a34fbe.js.map",
+    "static/css/2.150d169a.chunk.css": "/albusterEmployeeDirectory/static/css/2.150d169a.chunk.css",
+    "static/js/2.5b2db6b4.chunk.js": "/albusterEmployeeDirectory/static/js/2.5b2db6b4.chunk.js",
+    "static/js/2.5b2db6b4.chunk.js.map": "/albusterEmployeeDirectory/static/js/2.5b2db6b4.chunk.js.map",
+    "static/js/3.052e2535.chunk.js": "/albusterEmployeeDirectory/static/js/3.052e2535.chunk.js",
+    "static/js/3.052e2535.chunk.js.map": "/albusterEmployeeDirectory/static/js/3.052e2535.chunk.js.map",
+    "index.html": "/albusterEmployeeDirectory/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/albusterEmployeeDirectory/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.8c8b27cf.chunk.css.map": "/albusterEmployeeDirectory/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.5b2db6b4.chunk.js.LICENSE.txt": "/albusterEmployeeDirectory/static/js/2.5b2db6b4.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/albusterEmployeeDirectory/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.07a34fbe.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.5b2db6b4.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.9f3e4770.chunk.js"
+  ]
+}
