@@ -1,4 +1,6 @@
 import React from "react"
+import API from "../utils/API"
+// import employee from "../employee.json"
 
 class SearchBar extends React.Component {
     state = {
@@ -13,7 +15,12 @@ class SearchBar extends React.Component {
         })
     }
 
-
+    // handleSearch = () => {
+    //     API.searchEmployee().then(function (res) {
+    //         console.log(res)
+    //         employee = res
+    //     })
+    // }
 
     render() {
         const styles = {
@@ -36,6 +43,7 @@ class SearchBar extends React.Component {
                         placeholder="Search" style={styles.inputF}></input>
                 </div>
                 <div className="col-md-5"></div>
+
 
             </div>
         </div>
