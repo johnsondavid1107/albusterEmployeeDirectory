@@ -1,9 +1,10 @@
 import React from "react"
 
-function Table() {
+function Table(props) {
+    const { handleSearch } = props
 
     return (
-        <table class="table table-striped">
+        <table className="table table-striped" onLoad={() => handleSearch()}>
             <thead>
                 <tr>
                     <th scope="col">Image</th>

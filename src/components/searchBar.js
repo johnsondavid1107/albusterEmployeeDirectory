@@ -1,10 +1,12 @@
 import React from "react"
 import API from "../utils/API"
+import Table from "../components/Table"
 // import employee from "../employee.json"
 
 class SearchBar extends React.Component {
     state = {
-        find: ""
+        find: "",
+        employees: {}
     }
 
     handleChange = (event) => {
@@ -15,12 +17,12 @@ class SearchBar extends React.Component {
         })
     }
 
-    // handleSearch = () => {
-    //     API.searchEmployee().then(function (res) {
-    //         console.log(res)
-    //         employee = res
-    //     })
-    // }
+    handleSearch = () => {
+        API.searchEmployee().then(function (res) {
+            this.setState({ employees: res.results })
+            console.log(this.state.employees)
+        })
+    }
 
     render() {
         const styles = {
@@ -46,8 +48,11 @@ class SearchBar extends React.Component {
 
 
             </div>
+            <Table handleSearch={this.handleSearch} />
         </div>
+
         )
+
     }
 }
 
