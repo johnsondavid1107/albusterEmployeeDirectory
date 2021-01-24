@@ -12,19 +12,47 @@ class SearchBar extends React.Component {
 
     componentDidMount() {
         axios.get("https://randomuser.me/api/?results=10").then(res =>
-            this.setState({ employees: res.data.results }));
+            this.setState({
+                employees: res.data.results
+            }))
+
 
     }
 
 
     handleChange = (event) => {
-        const { name, value } = event.target;
-        console.log(value);
+        const { value } = event.target;
         this.setState({
-            [name]: value
-        })
+            find: value
+        }, () => this.findEmployee())
+
+
     }
 
+    findEmployee = () => {
+
+        const filterEmployees = this.state.employees.filter(person =>
+            person.cell.includes(this.state.find))
+
+        this.setState({ employees: filterEmployees }, function () {
+
+        })
+        console.log(this.state.employees)
+        console.log(this.state.find)
+        console.log(filterEmployees)
+    }
+    handleSort = () => {
+        let array = this.state.employees
+
+        array.sort(function (a, b) {
+
+            // this.setState({ employees: array })
+            return a.name.last - b.name.last
+
+        })
+        console.log(array)
+
+    }
 
     render() {
         const styles = {
@@ -47,17 +75,11 @@ class SearchBar extends React.Component {
                         placeholder="Search" style={styles.inputF}></input>
                 </div>
                 <div className="col-md-5">
-                    {/* <button onClick={this.handleSearch}>click me</button> */}
-                    {/* Getting stuck on callin axios.  Need to call on load and have json stacked */}
                 </div>
 
 
             </div>
-            <Table employee={this.state.employees} />
-
-
-
-
+            <Table employee={this.state.employees} key={this.state.key} sort={this.handleSort} />
         </div>
 
         )
