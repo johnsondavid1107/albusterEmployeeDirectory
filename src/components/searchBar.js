@@ -1,13 +1,21 @@
 import React from "react"
-import API from "../utils/API"
-import Table from "../components/Table"
+// import API from "../utils/API"
+import axios from "axios"
+import Table from "./Table"
 // import employee from "../employee.json"
 
 class SearchBar extends React.Component {
     state = {
         find: "",
-        employees: {}
+        employees: []
     }
+
+    componentDidMount() {
+        axios.get("https://randomuser.me/api/?results=10").then(res =>
+            this.setState({ employees: res.data.results }));
+
+    }
+
 
     handleChange = (event) => {
         const { name, value } = event.target;
@@ -17,12 +25,6 @@ class SearchBar extends React.Component {
         })
     }
 
-    handleSearch = () => {
-        API.searchEmployee().then(function (res) {
-            this.setState({ employees: res.results })
-            console.log(this.state.employees)
-        })
-    }
 
     render() {
         const styles = {
@@ -44,11 +46,18 @@ class SearchBar extends React.Component {
                         onChange={this.handleChange}
                         placeholder="Search" style={styles.inputF}></input>
                 </div>
-                <div className="col-md-5"></div>
+                <div className="col-md-5">
+                    {/* <button onClick={this.handleSearch}>click me</button> */}
+                    {/* Getting stuck on callin axios.  Need to call on load and have json stacked */}
+                </div>
 
 
             </div>
-            <Table handleSearch={this.handleSearch} />
+            <Table employee={this.state.employees} />
+
+
+
+
         </div>
 
         )
