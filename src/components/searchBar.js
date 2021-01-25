@@ -8,11 +8,12 @@ class SearchBar extends React.Component {
     state = {
         find: "",
         employees: [],
-        filteredEmployees: []
+        filteredEmployees: [],
+        sortClicked: null
     }
 
     componentDidMount() {
-        axios.get("https://randomuser.me/api/?results=10").then(res =>
+        axios.get("https://randomuser.me/api/?results=50&nat=us&inc=gender,dob,email,id,name,nat,cell,picture").then(res =>
             this.setState({
                 employees: res.data.results,
                 filteredEmployees: res.data.results
@@ -38,27 +39,46 @@ class SearchBar extends React.Component {
     findEmployee = () => {
 
         const filterEmployees = this.state.employees.filter(person =>
-            (person.name.first.toLowerCase().includes(this.state.find)))
+            (person.name.first.toLowerCase().includes(this.state.find.toLowerCase()))
+            ||
+            (person.name.last.toLowerCase().includes(this.state.find.toLowerCase()))
+            ||
+            (person.cell.includes(this.state.find))
+            ||
+            (person.email.includes(this.state.find))
+        )
 
 
         this.setState({
             filteredEmployees: filterEmployees
         })
 
-        console.log(this.state.employees)
-        console.log(this.state.find)
-        console.log(filterEmployees)
+        // console.log(this.state.employees)
+        // console.log(this.state.find)
+        // console.log(filterEmployees)
+
+
     }
     handleSort = () => {
-        let array = this.state.employees
-
+        this.setState({ sortClicked: true })
+        //learned this sort function from Stacked Overflow
+        let array = this.state.filteredEmployees
         array.sort(function (a, b) {
+            let nameA = a.name.first.toLowerCase()
+            let nameB = b.name.first.toLowerCase()
 
-            // this.setState({ employees: array })
-            return a.name.last - b.name.last
+            if (nameA < nameB) {
+                return -1
+            }
 
         })
+
+        this.setState({ filteredEmployees: array })
+
         console.log(array)
+
+
+
 
     }
 
@@ -87,7 +107,7 @@ class SearchBar extends React.Component {
 
 
             </div>
-            <Table employee={this.state.filteredEmployees} key={this.state.key} sort={this.handleSort} />
+            <Table employee={this.state.filteredEmployees} sort={this.handleSort} />
         </div>
 
         )
