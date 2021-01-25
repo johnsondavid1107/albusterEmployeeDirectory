@@ -13,7 +13,7 @@ Showcase React.js functionality.
 
 Try the app out here!  https://johnsondavid1107.github.io/albusterEmployeeDirectory/
 
-<img src="../public/employeeDirectory.png" alt="employee">
+<img src="./public/employeeDirectory.png" alt="employee">
 
 # The Who
 
