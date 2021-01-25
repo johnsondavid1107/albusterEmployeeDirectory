@@ -7,13 +7,15 @@ import Table from "./Table"
 class SearchBar extends React.Component {
     state = {
         find: "",
-        employees: []
+        employees: [],
+        filteredEmployees: []
     }
 
     componentDidMount() {
         axios.get("https://randomuser.me/api/?results=10").then(res =>
             this.setState({
-                employees: res.data.results
+                employees: res.data.results,
+                filteredEmployees: res.data.results
             }))
 
 
@@ -25,6 +27,10 @@ class SearchBar extends React.Component {
         this.setState({
             find: value
         }, () => this.findEmployee())
+        if (value.length <= 0) {
+            this.setState({ employees: this.state.employees })
+        }
+
 
 
     }
@@ -32,11 +38,13 @@ class SearchBar extends React.Component {
     findEmployee = () => {
 
         const filterEmployees = this.state.employees.filter(person =>
-            person.cell.includes(this.state.find))
+            (person.name.first.toLowerCase().includes(this.state.find)))
 
-        this.setState({ employees: filterEmployees }, function () {
 
+        this.setState({
+            filteredEmployees: filterEmployees
         })
+
         console.log(this.state.employees)
         console.log(this.state.find)
         console.log(filterEmployees)
@@ -79,7 +87,7 @@ class SearchBar extends React.Component {
 
 
             </div>
-            <Table employee={this.state.employees} key={this.state.key} sort={this.handleSort} />
+            <Table employee={this.state.filteredEmployees} key={this.state.key} sort={this.handleSort} />
         </div>
 
         )
