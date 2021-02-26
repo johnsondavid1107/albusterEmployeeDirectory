@@ -11,7 +11,7 @@ Showcase React.js functionality.
 The Where?
 Try the app out here! https://johnsondavid1107.github.io/albusterEmployeeDirectory/
 
-<img src="./employee-directory/public/employeeDirectory.png" alt="employee">
+<img src="employeeDirectory.png" alt="employee">
 The Who
 This applicaiton is maintained by myself. I can be reached for contributions, or questions here:
 
