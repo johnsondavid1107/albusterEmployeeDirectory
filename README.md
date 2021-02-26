@@ -1,4 +1,4 @@
-# albusterEmployeeDirectoryalbusterEmployeeDirectory
+# albusterEmployeeDirectory
 The What!
 Hello all! This applicaiton will help companies filter throught their millions of employees! It has a simple search bar that will comb through the employees by first name, last name, phone number and even email. There also is an option to sort all employees descending by first name.
 
